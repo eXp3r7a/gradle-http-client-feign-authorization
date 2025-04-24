@@ -14,7 +14,6 @@ public class StylesFeignConfig {
 
     @Bean
     public RequestInterceptor requestInterceptorStyles() {
-
         return requestTemplate ->  {
             requestTemplate.header("Authorization", "Bearer " + stylesToken);
         };

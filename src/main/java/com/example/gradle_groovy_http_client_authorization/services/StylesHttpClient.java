@@ -40,12 +40,10 @@ public class StylesHttpClient {
 
                 if(statusCode >= 200 && statusCode < 300){
                     ObjectMapper mapper = new ObjectMapper();
-                    StylesResponse stylesResponse = mapper.readValue(result.toString(), StylesResponse.class);
-                    return stylesResponse;
+                    return mapper.readValue(result.toString(), StylesResponse.class);
                 } else {
                     ObjectMapper mapper = new ObjectMapper();
-                    StyleErrorMessage errorMessage = mapper.readValue(result.toString(), StyleErrorMessage.class);
-                    return errorMessage;
+                    return mapper.readValue(result.toString(), StyleErrorMessage.class);
                 }
             }
         }
