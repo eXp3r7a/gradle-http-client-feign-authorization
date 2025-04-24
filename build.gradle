@@ -32,7 +32,7 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-tasks.withType<JacocoCoverageVerification>{
+tasks.withType<JacocoCoverageVerification> {
 	violationRules {
 		rule {
 			element = "BUNDLE"
@@ -43,6 +43,7 @@ tasks.withType<JacocoCoverageVerification>{
 			}
 		}
 	}
+}
 
 sonar {
 	properties {
