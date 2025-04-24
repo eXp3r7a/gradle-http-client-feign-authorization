@@ -1,6 +1,5 @@
 package com.example.gradle_groovy_http_client_authorization;
 
-import com.example.gradle_groovy_http_client_authorization.services.StylesFeignClient;
 import com.example.gradle_groovy_http_client_authorization.services.StylesHttpClient;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -39,9 +38,9 @@ public class StylesHttpControllerTest {
         String expectThrowMessage = "You need to authorize!";
 
         //WHEN
-        when(stylesHttpClient.getAllStyles()).thenThrow(new OpenApiResourceNotFoundException("You need to authorize!"));
+        String actual = when(stylesHttpClient.getAllStyles()).thenThrow(new OpenApiResourceNotFoundException("You need to authorize!")).toString();
 
         //THEN
-        Assertions.assertEquals(expectThrowMessage, "You need to authorize!");
+        Assertions.assertEquals(expectThrowMessage, actual);
     }
 }
