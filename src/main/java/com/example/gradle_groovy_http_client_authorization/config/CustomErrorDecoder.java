@@ -19,8 +19,8 @@ public class CustomErrorDecoder implements ErrorDecoder {
             case NOT_FOUND: return new OpenApiResourceNotFoundException("Bad request! Page not found!");
             case INTERNAL_SERVER_ERROR: return new OpenApiResourceNotFoundException("Server side error! Contact with developer!");
             case UNAUTHORIZED: return new OpenApiResourceNotFoundException("You need to authorize!");
+            default: return null;
         }
-        return null;
     }
 }
 
