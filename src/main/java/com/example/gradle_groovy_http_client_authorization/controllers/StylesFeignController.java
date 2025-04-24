@@ -19,7 +19,7 @@ public class StylesFeignController {
     }
 
     @GetMapping("/get-all")
-    public ResponseEntity<StylesResponse> getWeather(){
-        return new ResponseEntity<>(stylesFeignClient.getWeather(), HttpStatus.OK);
+    public ResponseEntity<StylesResponse> getAllStyles(){
+        return new ResponseEntity<>(stylesFeignClient.getAllStyles(), HttpStatus.OK);
     }
 }

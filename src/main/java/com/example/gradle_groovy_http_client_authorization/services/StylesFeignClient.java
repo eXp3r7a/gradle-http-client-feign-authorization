@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 public interface StylesFeignClient {
 
     @GetMapping("/v4/styles")
-    StylesResponse getWeather();
+    StylesResponse getAllStyles();
 }
