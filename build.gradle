@@ -39,8 +39,7 @@ sonar {
 		property "sonar.organization", "exp3r7a"
 		property "sonar.host.url", "https://sonarcloud.io"
 		property "sonar.java.coveragePlugin", "jacoco"
-		property "sonar.coverage.jacoco.xmlReportPath", "build/reports/jacoco/jacoco.xml"
-		property "sonar.coverage.minimum", "70"
+		property "sonar.coverage.jacoco.xmlReportPaths", "${buildDir}/reports/jacoco/jacoco.xml"
 	}
 }
 
@@ -56,9 +55,20 @@ jacoco {
 }
 jacocoTestReport {
 	reports {
-		xml.required = true
-		csv.required = false
-		xml.destination file("${buildDir}/reports/jacoco/jacoco.xml")
-		html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+		xml.required.set(true)
+		csv.required.set(false)
+		xml.outputLocation.set(file("${buildDir}/reports/jacoco/jacoco.xml"))
+		html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
 	}
 }
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.70
+			}
+		}
+	}
+}
+
+check.dependsOn jacocoTestCoverageVerification
