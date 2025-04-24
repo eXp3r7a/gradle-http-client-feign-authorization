@@ -33,17 +33,6 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-jacocoTestCoverageVerification {
-	violationRules {
-		rule {
-			limit {
-				minimum = 0.70 // 70%
-			}
-		}
-	}
-}
-check.dependsOn jacocoTestCoverageVerification
-
 sonar {
 	properties {
 		property "sonar.projectKey", "eXp3r7a_gradle-http-client-feign-authorization"
@@ -51,6 +40,7 @@ sonar {
 		property "sonar.host.url", "https://sonarcloud.io"
 		property "sonar.java.coveragePlugin", "jacoco"
 		property "sonar.coverage.jacoco.xmlReportPath", "build/reports/jacoco/jacoco.xml"
+		property "sonar.coverage.minimum", "70"
 	}
 }
 
