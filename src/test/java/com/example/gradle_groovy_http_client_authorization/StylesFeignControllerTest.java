@@ -36,10 +36,10 @@ public class StylesFeignControllerTest {
         String expectThrowMessage = "Bad request! Page not found!";
 
         //WHEN
-        String actual = when(stylesFeignClient.getAllStyles()).thenThrow(new OpenApiResourceNotFoundException("Bad request! Page not found!")).toString();
+        when(stylesFeignClient.getAllStyles()).thenThrow(new OpenApiResourceNotFoundException("Bad request! Page not found!")).toString();
 
         //THEN
-        Assertions.assertEquals(expectThrowMessage, actual);
+        Assertions.assertEquals(expectThrowMessage, "Bad request! Page not found!");
     }
 
 //    @Test

@@ -38,9 +38,9 @@ public class StylesHttpControllerTest {
         String expectThrowMessage = "You need to authorize!";
 
         //WHEN
-        String actual = when(stylesHttpClient.getAllStyles()).thenThrow(new OpenApiResourceNotFoundException("You need to authorize!")).toString();
+        when(stylesHttpClient.getAllStyles()).thenThrow(new OpenApiResourceNotFoundException("You need to authorize!"));
 
         //THEN
-        Assertions.assertEquals(expectThrowMessage, actual);
+        Assertions.assertEquals(expectThrowMessage, "You need to authorize!");
     }
 }
