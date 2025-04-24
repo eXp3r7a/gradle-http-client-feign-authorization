@@ -32,18 +32,17 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-tasks.withType<JacocoCoverageVerification> {
+
+jacocoTestCoverageVerification {
 	violationRules {
 		rule {
-			element = "BUNDLE"
 			limit {
-				counter = "INSTRUCTION"
-				value = "COVEREDRATIO"
-				minimum = "0.7".toBigDecimal()
+				minimum = 0.70 // 70%
 			}
 		}
 	}
 }
+check.dependsOn jacocoTestCoverageVerification
 
 sonar {
 	properties {
