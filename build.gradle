@@ -61,3 +61,14 @@ jacocoTestReport {
 		html.outputLocation.set(layout.buildDirectory.dir("jacocoHtml"))
 	}
 }
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.70
+			}
+		}
+	}
+}
+
+check.dependsOn jacocoTestCoverageVerification
