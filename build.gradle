@@ -38,6 +38,8 @@ sonar {
 		property "sonar.projectKey", "eXp3r7a_gradle-http-client-feign-authorization"
 		property "sonar.organization", "exp3r7a"
 		property "sonar.host.url", "https://sonarcloud.io"
+		property "sonar.java.coveragePlugin", "jacoco"
+		property "sonar.coverage.jacoco.xmlReportPath", "/reports/jacoco.xml"
 	}
 }
 
@@ -53,8 +55,9 @@ jacoco {
 }
 jacocoTestReport {
 	reports {
-		xml.required = false
+		xml.required = true
 		csv.required = false
+		xml.destination file("/reports/jacoco.xml")
 		html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
 	}
 }
